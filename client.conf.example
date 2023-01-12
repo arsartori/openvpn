@@ -1,0 +1,21 @@
+client
+nobind
+dev tun
+remote-cert-tls server
+remote <IP/fqdn> 1194 udp
+
+<key>
+
+</key>
+<cert>
+
+</cert>
+<ca>
+
+</ca>
+key-direction 1
+<tls-auth>
+
+</tls-auth>
+
+
