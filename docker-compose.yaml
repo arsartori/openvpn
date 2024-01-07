@@ -1,41 +1,47 @@
 version: "3"
 services:
-  transmission:
+  openvpn:
     image: arsartori/openvpn
+    container_name: openvpn
+    restart: unless-stopped
+    ports:
+      - 1194:1194/udp
+    volumes:
+      - /opt/openvpn:/etc/openvpn
+    cap_add:
+      - NET_ADMIN
+    sysctls:       
+      net.ipv6.conf.all.disable_ipv6: 0
+      net.ipv6.conf.default.forwarding: 1
+      net.ipv6.conf.all.forwarding: 1
     environment:
 #      - PUID=1000
 #      - PGID=999
       - TZ=America/Sao_Paulo
-      - CREATE_TUN_DEVICE=true
-      - OPENVPN_PROVIDER=PROVIDER
-      - OPENVPN_USERNAME=user
-      - OPENVPN_PASSWORD=password
-      - WEBPROXY_ENABLED=false
-      - TRANSMISSION_WEB_UI=kettu
-      - LOCAL_NETWORK=172.16.10.0/24
-    volumes:
-      - /opt/openvpn:/etc/openvpn
-    networks:
-      - network-public
-    devices:
-      - /dev/net/tun:/dev/net/tun
-    cap_add:
-      - NET_ADMIN
-    dns:
-      - myhomedns
-    ports:
-      - 9091:9091
-    deploy:
-      restart_policy:
-        condition: any
+#      - CREATE_TUN_DEVICE=true
+#      - OPENVPN_PROVIDER=PROVIDER
+#      - OPENVPN_USERNAME=user
+#      - OPENVPN_PASSWORD=password
+#      - WEBPROXY_ENABLED=false
+#      - TRANSMISSION_WEB_UI=kettu
+#      - LOCAL_NETWORK=172.16.10.0/24
+#    networks:
+#      - network-public
+#    devices:
+#      - /dev/net/tun:/dev/net/tun
+#    dns:
+#      - myhomedns
+#    deploy:
+#      restart_policy:
+#        condition: any
 #      labels:
 #        - traefik.enable=true
 #        - traefik.tags=traefik-public
 #        - traefik.frontend.rule=Host:torrent.mydomain.com
 #        - traefik.docker.network=traefik-public
 #        - traefik.port=9091
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "4"
+#    logging:
+#      driver: "json-file"
+#      options:
+#        max-size: "10m"
+#        max-file: "4"
