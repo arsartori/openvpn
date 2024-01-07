@@ -1,9 +1,8 @@
-# docker-openvpn
-Simple docker image for OpenVPN
+# Simple docker image for OpenVPN
 
 ### Create variables  
-OPENVPN_DIR="/opt/openvpn"  
-CERTS_DIR=$OPENVPN_DIR/certs  
+export OPENVPN_DIR="/opt/openvpn"  
+export CERTS_DIR=$OPENVPN_DIR/certs  
   
 ### Create directory
 mkdir -p $CERTS_DIR  
@@ -24,8 +23,7 @@ openssl x509 -req -days 365 -extfile openssl.cnf -extensions v3_server -in $Open
 ### Start OpenVPN
 ```
 docker run -d --name docker-openvpn \
-	-p 1194:1194/udp \
-	--cap-add=NET_ADMIN \
+	-p 1194:1194/udp --cap-add=NET_ADMIN \
 	-v $OpenVPN_DIR:/etc/openvpn \
 	docker-openvpn
 ```
