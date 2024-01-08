@@ -1,2 +1,5 @@
 README.md
 LICENSE
+client.conf
+openvpn.conf
+docker-compose.yaml
