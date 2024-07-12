@@ -1,0 +1,11 @@
+Version: '3.0'
+Services:
+  openvpn:
+    container: openvpn
+    hostname: openvpn
+    image: openvpn
+    ports:
+      - "1194:1194/udp"
+    environment:
+      - $OPENVPN_DIR:/etc/openvpn
+    --cap-add=NET_ADMIN
