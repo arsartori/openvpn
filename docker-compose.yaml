@@ -1,11 +1,15 @@
-Version: '3.0'
-Services:
+version: "3"
+services:
   openvpn:
-    container: openvpn
+    image: openvpn:1.0
+    container_name: openvpn
     hostname: openvpn
-    image: openvpn
+    restart: always
     ports:
-      - "1194:1194/udp"
+      - 1194:1194/udp
+    volumes:
+      - /opt/docker/openvpn/conf:/etc/openvpn
+    cap_add:
+      - NET_ADMIN
     environment:
-      - $OPENVPN_DIR:/etc/openvpn
-    --cap-add=NET_ADMIN
+      - TZ=America/Sao_Paulo
