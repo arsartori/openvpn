@@ -1,6 +1,6 @@
 services:
   openvpn:
-    image: openvpn:latest
+    image: arsartori/openvpn:latest
     container_name: openvpn
     hostname: openvpn
     restart: always
