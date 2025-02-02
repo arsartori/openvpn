@@ -30,4 +30,4 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ IMAGE_NAME }}:2.5.6, ${{ vars.DOCKERHUB_USERNAME }}/${{ IMAGE_NAME }}:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:2.5.6, ${{ vars.DOCKERHUB_USERNAME }}/${{ IMAGE_NAME }}:latest
