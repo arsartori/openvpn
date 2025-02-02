@@ -27,4 +27,4 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/openvpn:2.5.6, ${{ vars.DOCKERHUB_USERNAME }}/openvpn:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ github.repository }}:2.5.6, ${{ vars.DOCKERHUB_USERNAME }}/${{ github.repository }}:latest
