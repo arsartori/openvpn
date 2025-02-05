@@ -1,6 +1,6 @@
 FROM alpine:3.15
 LABEL maintainer="Andre Sartori <dev@aphtec.com.br>"
-RUN apk add --no-cache openvpn iptables
+RUN apk add --no-cache openvpn iptables tzdata
 ENV OPENVPN=/etc/openvpn
 EXPOSE 1194/udp
 ADD scripts/openvpn_start.sh /usr/local/bin/
