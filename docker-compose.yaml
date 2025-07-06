@@ -1,14 +1,14 @@
 version: "3"
 services:
   openvpn:
-    image: openvpn:1.0
+    image: arsartori/openvpn:latest
     container_name: openvpn
     hostname: openvpn
     restart: always
     ports:
       - 1194:1194/udp
     volumes:
-      - /opt/docker/openvpn/conf:/etc/openvpn
+      - /opt/docker/openvpn:/etc/openvpn
     cap_add:
       - NET_ADMIN
     environment:

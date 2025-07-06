@@ -1,5 +1,5 @@
-FROM alpine:3.15
-LABEL maintainer="Andre Sartori <andre.aph@outlook.com>"
+FROM alpine:3.16
+LABEL maintainer="Andre Sartori <dev@aphs.com.br>"
 RUN apk add --no-cache openvpn iptables
 ENV OPENVPN=/etc/openvpn
 EXPOSE 1194/udp
