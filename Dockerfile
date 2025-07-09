@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:3.17
 LABEL maintainer="Andre Sartori <dev@aphs.com.br>"
 RUN apk add --no-cache openvpn iptables
 ENV OPENVPN=/etc/openvpn
